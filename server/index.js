@@ -1,21 +1,21 @@
 import chalkAnimation from 'chalk-animation';
 import { database } from './database.js';
 
-// TODO #1: Import Morgan and Express
+// Import Morgan and Express
 import express from "express";
 import logger from "morgan";
 
-// TODO #2: Create an Express app.
+// Create an Express app.
 const app = express();
 const port = process.env.PORT || 3000;
 
-// TODO #3: Add middleware to the Express app.
+// Add middleware to the Express app.
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(logger('dev'));
 app.use('/', express.static('client'));
 
-// TODO #4: Implement the /wordScore endpoint
+// Implement the /wordScore endpoint
 app.post('/wordScore', async function(req, res) {
   const data = req.body;
   if (!("name" in data && "word" in data && "score" in data)) {
@@ -30,7 +30,7 @@ app.post('/wordScore', async function(req, res) {
   }
 });
 
-// TODO #5: Implement the /highestWordScores endpoint
+// Implement the /highestWordScores endpoint
 app.get('/highestWordScores', async function(req, res) {
   try{
     const response = await database.top10WordScores();  
@@ -41,7 +41,7 @@ app.get('/highestWordScores', async function(req, res) {
   }
 });
 
-// TODO #6: Implement the /gameScore endpoint
+// Implement the /gameScore endpoint
 app.post('/gameScore', async function(req, res) {
   const data = req.body;
   if (!("name" in data && "score" in data)) {
@@ -57,7 +57,7 @@ app.post('/gameScore', async function(req, res) {
   
 });
 
-// TODO #7: Implement the /highestGameScores endpoint
+// Implement the /highestGameScores endpoint
 app.get('/highestGameScores', async function(req, res) {
   try{
     const response = await database.top10GameScores();  
@@ -67,8 +67,6 @@ app.get('/highestGameScores', async function(req, res) {
     res.status(500).json({error: "error"})
   }
 });
-
-// EVERYTHING BELOW THIS WILL WORK AFTER YOU IMPLEMENT THE ABOVE
 
 // This matches all routes that are not defined.
 app.all('*', async (request, response) => {

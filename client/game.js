@@ -4,12 +4,12 @@ function shuffle(array) {
   // Fisher-Yates shuffle, used for random decoder cipher below
   let m = array.length;
 
-  // While there remain elements to shuffle…
+  // While there remain elements to shuffle
   while (m) {
-    // Pick a remaining element…
+    // Pick a remaining element
     let i = Math.floor(Math.random() * m--);
 
-    // And swap it with the current element.
+    // Swap it with the current element
     let t = array[m];
     array[m] = array[i];
     array[i] = t;
@@ -32,8 +32,7 @@ export class Game {
   }
 
   /**
-   * This function will reset the game to the default state.
-   * It will NOT update visually, hence render should be called after resetting.
+   * This function will reset the game to the default state. It will not update visually
    */
   reset() {
     // Initialize the bag.

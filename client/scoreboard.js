@@ -3,7 +3,7 @@ class WordScoreBoard {
     this.words = [];
   }
 
-  // TODO #8: Save the word score to the server
+  // Save the word score to the server
   async saveWordScore(name, word, score) {
     let data = {
       name: name,
@@ -100,7 +100,7 @@ class GameScoreBoard {
 }
 
 class TopWordAndGameScoreBoard {
-  // TODO #10: Render the top word and game scores
+  // Render the top word and game scores
   async render(element) {
     element.innerHTML = "";
 

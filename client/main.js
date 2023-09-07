@@ -8,8 +8,7 @@ import {
   topWordAndGameScoreBoard,
 } from './scoreboard.js';
 
-// UI Components
-//  - We grab the DOM elements we need to work with to make our code cleaner.
+// Define DOM elements for the UI Components
 const boardGridElement = document.getElementById('board');
 const playersElement = document.getElementById('players');
 const wordElement = document.getElementById('word');
@@ -21,7 +20,7 @@ const resetButtonElement = document.getElementById('reset');
 const helpButtonElement = document.getElementById('help');
 const hintElement = document.getElementById('hint');
 
-// Useful constants
+// Constant values to be used
 const TILE_COUNT = 7;
 const NUMBER_OF_PLAYERS = 2;
 
@@ -129,7 +128,6 @@ playButtonElement.addEventListener('click', () => {
   }
 });
 
-// This is what happens when we click the reset button.
 resetButtonElement.addEventListener('click', () => {
   // Reset the game board.
   game.reset();
@@ -147,7 +145,7 @@ resetButtonElement.addEventListener('click', () => {
   multiPlayerView(playersElement, racks, turn, true);
 });
 
-// This is what happens when we click the help button.
+// When help button is clicked, a hint is revealed
 helpButtonElement.addEventListener('click', () => {
   const tiles = racks[turn].getAvailableTiles();
   const possibilities = utils.bestPossibleWords(tiles);
@@ -158,7 +156,7 @@ helpButtonElement.addEventListener('click', () => {
   hintElement.innerText = hint;
 });
 
-// TODO #13: Handle a click event when "End" button is clicked
+// When "End" button is clicked, display top 10 score board
 document.getElementById("end").addEventListener("click", () => {
   for (let i = 1; i <= NUMBER_OF_PLAYERS; i++){
     console.log(`iteration ${i}`)
